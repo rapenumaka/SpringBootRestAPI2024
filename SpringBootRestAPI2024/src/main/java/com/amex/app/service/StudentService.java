@@ -15,6 +15,10 @@ public interface StudentService {
 
     public StudentDto getStudentById(Long studentId);
 
+    public List<StudentDto> getStudentsByClass(String studentClass);
+
+    public StudentDto getStudentsByName(String studentName);
+
     public StudentDto updateStudent(Long studentId, StudentDto studentDto);
 
     public boolean deleteStudentById(Long studentId);

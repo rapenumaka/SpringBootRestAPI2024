@@ -5,7 +5,9 @@ import jakarta.annotation.Nonnull;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 import java.time.LocalDate;
@@ -15,8 +17,16 @@ import java.time.LocalDate;
         name = "Student",
         description = "Schema to hold Student information"
 )
+
+@NoArgsConstructor
 public class StudentDto {
 
+    public StudentDto( String name, String studentClass, String dateOfBirth, String dateOfJoining ){
+        this.name = name;
+        this.studentClass = studentClass;
+        this.dateOfBirth = dateOfBirth;
+        this.dateOfJoining = dateOfJoining;
+    }
 
     @Schema(
             description = "Student ID", example = "007"

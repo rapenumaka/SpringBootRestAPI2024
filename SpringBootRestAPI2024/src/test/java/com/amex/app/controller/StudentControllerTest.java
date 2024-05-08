@@ -35,7 +35,7 @@ public class StudentControllerTest {
 
          when(studentService.getStudentById(any(Long.class))).thenReturn(studentDto);
 
-         mockMvc.perform(get("/api/v1//student?studentId=1"))
+         mockMvc.perform(get("/api/v1//studentById?studentId=1"))
                  .andExpect(status().isOk())
                  .andExpect(jsonPath("$.name").value("James Bond"))
                  .andExpect(jsonPath("$.studentClass").value("Political Science"))

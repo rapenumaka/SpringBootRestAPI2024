@@ -10,5 +10,8 @@ public class StudentNotFoundException extends RuntimeException{
         super("Student with id: " + studentId + " not found");
     }
 
+    public StudentNotFoundException(String name){ super("Student with name: "+name+" not foound");   }
+
+
 }
 

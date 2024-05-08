@@ -55,11 +55,63 @@ public class StudentController {
             )
     }
     )
-    @GetMapping(value = "/student")
+    @GetMapping(value = "/studentById")
     public ResponseEntity<StudentDto> getStudent(@Valid @RequestParam  Long studentId) {
 
        return ResponseEntity.status(HttpStatus.OK)
                .body(this.studentService.getStudentById(studentId));
+    }
+
+
+    @Operation(
+            summary = "Get Student by name",
+            description = "Get Student by name"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    }
+    )
+    @GetMapping(value = "/studentByName")
+    public ResponseEntity<StudentDto> getStudentByName(@Valid @RequestParam  String studentName) {
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(this.studentService.getStudentsByName(studentName));
+    }
+
+
+    @Operation(
+            summary = "Get Students by class name",
+            description = "Get Students by class name"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    }
+    )
+    @GetMapping(value = "/studentsByClass")
+    public ResponseEntity<List<StudentDto>> getStudent(@Valid @RequestParam  String studentClass) {
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(this.studentService.getStudentsByClass(studentClass));
     }
 
 
