@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: SpringBootRestAPI2024
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/amex_db
+    username: amex_user
+    password: amex_pass
+    driverClassName: org.postgresql.Driver
+server:
+  port: 8097
+
+management:
+  endpoints:
+    web:
+      expose:
+        include: "*"
